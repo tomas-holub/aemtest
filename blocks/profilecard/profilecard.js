@@ -1,3 +1,5 @@
+import './ProfileCardComponent.js';
+
 function parseProfileData(block) {
   const [nameRow, roleRow, imgRow] = [...block.children];
   const imgElement = imgRow?.querySelector('img');
@@ -21,11 +23,7 @@ function renderProfileCard(data) {
 }
 
 export default function decorate(block) {
-  const data = parseProfileData(block);
+  const profileCardElement = document.createElement('profile-card');
 
-  block.innerHTML = renderProfileCard(data);
-
-  block.querySelector('[data-action="connect"]')?.addEventListener('click', () => {
-    alert('test');
-  });
+  block.replaceChildren(profileCardElement);
 }

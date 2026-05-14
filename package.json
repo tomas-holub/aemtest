@@ -7,7 +7,9 @@
     "lint:js": "eslint .",
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix"
+    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
+    "build": "esbuild blocks/**/*.ts scripts/**/*.ts --outdir=. --format=esm --sourcemap",
+    "watch": "esbuild blocks/**/*.ts scripts/**/*.ts --outdir=. --format=esm --sourcemap --watch"
   },
   "repository": {
     "type": "git",
@@ -21,10 +23,18 @@
   "homepage": "https://github.com/adobe/aem-boilerplate#readme",
   "devDependencies": {
     "@babel/eslint-parser": "7.28.6",
+    "@types/web": "^0.0.349",
+    "@typescript-eslint/eslint-plugin": "^8.59.3",
+    "@typescript-eslint/parser": "^8.59.3",
+    "esbuild": "^0.28.0",
     "eslint": "8.57.1",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.32.0",
     "stylelint": "17.11.0",
-    "stylelint-config-standard": "40.0.0"
+    "stylelint-config-standard": "40.0.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@material/web": "^2.4.1"
   }
 }
