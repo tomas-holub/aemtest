@@ -1,10 +1,12 @@
 function parseProfileData(block) {
   const [nameRow, roleRow, imgRow] = [...block.children];
+  const imgElement = imgRow?.querySelector('img');
+  const optimalPicture = imgElement?.closest('picture') || imgElement;
 
   return {
     name: nameRow?.textContent?.trim() || 'Name not provided',
     role: roleRow?.textContent?.trim() || '',
-    imgHtml: imgRow?.querySelector('img')?.innerHTML || '',
+    imgHtml: optimalPicture ? optimalPicture.outerHTML : '',
   };
 }
 
